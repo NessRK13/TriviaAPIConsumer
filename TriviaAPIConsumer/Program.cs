@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace TriviaAPIConsumer
@@ -12,9 +13,26 @@ namespace TriviaAPIConsumer
 
             Console.WriteLine("Received trivia questions.\n\n");
 
-            Console.WriteLine(result.results[0].question);
+            //Print out each question one by one, followed by their answers, then the correct answer.
+            DisplayQuestions(result.results);
 
             Console.ReadKey();
+        }
+        
+        static void DisplayQuestions(List<Result> questions)
+        {
+            foreach (Result q in questions)
+            {
+                Console.WriteLine("Question:");
+                Console.WriteLine(q.question);
+                Console.WriteLine("Incorrect Answers:");
+                foreach (string incorrect in q.incorrect_answers)
+                {
+                    Console.WriteLine(incorrect);
+                }
+                Console.WriteLine("Correct Answer:");
+                Console.WriteLine($"{q.correct_answer}\n");
+            }
         }
     }
 }
