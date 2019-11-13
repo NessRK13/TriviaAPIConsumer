@@ -20,9 +20,9 @@ namespace TriviaAPIConsumer
             client.BaseAddress = new Uri("https://opentdb.com/");
         }
 
-        public async Task<string> GetTriviaQuestionsAsync()
+        public async Task<string> GetTriviaQuestionsAsync(byte numQuestions)
         {
-            HttpResponseMessage response = await client.GetAsync("api.php?amount=5");
+            HttpResponseMessage response = await client.GetAsync($"api.php?amount={numQuestions}");
 
             if (response.IsSuccessStatusCode)
             {

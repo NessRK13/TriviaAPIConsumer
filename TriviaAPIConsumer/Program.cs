@@ -8,7 +8,7 @@ namespace TriviaAPIConsumer
         static async Task Main()
         {
             TriviaClient trivia = new TriviaClient();
-            string result = await trivia.GetTriviaQuestionsAsync();
+            string result = await trivia.GetTriviaQuestionsAsync(3);
 
             Console.WriteLine("Received trivia questions.\n\n");
 
