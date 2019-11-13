@@ -15,11 +15,14 @@ namespace TriviaAPIConsumer
         static TriviaClient()
         {
             // Initialize all HttpClient settings
+
+            //Base address must end with a forward slash
+            client.BaseAddress = new Uri("https://opentdb.com/");
         }
 
         public async Task<string> GetTriviaQuestionsAsync()
         {
-            HttpResponseMessage response = await client.GetAsync("https://opentdb.com/api.php?amount=5");
+            HttpResponseMessage response = await client.GetAsync("api.php?amount=5");
 
             if (response.IsSuccessStatusCode)
             {
@@ -47,7 +50,6 @@ namespace TriviaAPIConsumer
     public class TriviaResponse
     {
         public int response_code { get; set; }
-
         public List<Result> results { get; set; }
     }
 }
