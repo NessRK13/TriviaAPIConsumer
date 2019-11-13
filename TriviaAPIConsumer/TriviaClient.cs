@@ -42,11 +42,19 @@ namespace TriviaAPIConsumer
     public class Result
     {
         public string category { get; set; }
-        public string type { get; set; }
+
+        [JsonProperty("type")]
+        public string QuestionType { get; set; }
         public string difficulty { get; set; }
-        public string question { get; set; }
-        public string correct_answer { get; set; }
-        public List<string> incorrect_answers { get; set; }
+
+        [JsonProperty("question")]
+        public string QuestionText { get; set; }
+
+        [JsonProperty("correct_answer")]
+        public string CorrectAnswer { get; set; }
+
+        [JsonProperty("incorrect_answers")]
+        public List<string> IncorrectAnswers { get; set; }
     }
 
     public class TriviaResponse

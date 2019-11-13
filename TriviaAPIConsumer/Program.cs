@@ -24,14 +24,14 @@ namespace TriviaAPIConsumer
             foreach (Result q in questions)
             {
                 Console.WriteLine("Question:");
-                Console.WriteLine(q.question);
+                Console.WriteLine(q.QuestionText);
                 Console.WriteLine("Incorrect Answers:");
-                foreach (string incorrect in q.incorrect_answers)
+                foreach (string incorrect in q.IncorrectAnswers)
                 {
                     Console.WriteLine(incorrect);
                 }
                 Console.WriteLine("Correct Answer:");
-                Console.WriteLine($"{q.correct_answer}\n");
+                Console.WriteLine($"{q.CorrectAnswer}\n");
             }
         }
     }
